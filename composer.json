@@ -1,6 +1,12 @@
 {
   "name": "skyyware/stage-chat",
   "description": "A small PHP contract for stateless chat providers.",
+  "homepage": "https://github.com/skyyware/stage-chat",
+  "support": {
+    "issues": "https://github.com/skyyware/stage-chat/issues",
+    "source": "https://github.com/skyyware/stage-chat",
+    "docs": "https://github.com/skyyware/stage-chat/blob/main/README.md"
+  },
   "type": "library",
   "license": "MIT",
   "require": {"php": "^8.4", "ext-json": "*"},

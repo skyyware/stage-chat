@@ -8,9 +8,40 @@ response. PHP 8.4 or newer. MIT licensed.
 composer require skyyware/stage-chat:^0.1
 ```
 
-While the repository is private, configure an authenticated Composer VCS
-repository for `git@github.com:skyyware/stage-chat.git` and prefer source
-installation. No Packagist availability is implied by a Git tag.
+Composer resolves tagged versions from
+[Packagist](https://packagist.org/packages/skyyware/stage-chat).
+No account, VCS override, or provider subscription is needed for this contract.
+Commit your application's lockfile. Version 0.1 is experimental; read
+[the changelog](CHANGELOG.md) before updating across minor versions.
+
+## Construct a request
+
+Save this as `request.php` in the Composer project:
+
+```php
+<?php
+declare(strict_types=1);
+
+use Stage\Chat\Message;
+use Stage\Chat\Request;
+use Stage\Chat\Role;
+
+require __DIR__ . '/vendor/autoload.php';
+
+$request = new Request(
+	instructions: 'Answer from the supplied context.',
+	context: 'The library opens at 09:00.',
+	messages: [new Message(Role::User, 'When does the library open?')],
+);
+
+echo $request->messages[0]->content . PHP_EOL;
+```
+
+Run `php request.php`. It prints `When does the library open?` without making
+a network request. Supply a `Connector` implementation to obtain an answer.
+The [Codex connector](https://github.com/skyyware/stage-chat-codex) is one option.
+
+## Call a connector
 
 ```php
 use Stage\Chat\Connector;
@@ -64,3 +95,6 @@ composer check
 
 Tests and static analysis run locally. Changes should keep the public contract
 small, test denied and malformed inputs, and explain observable behavior.
+Read [CONTRIBUTING.md](CONTRIBUTING.md), [AGENTS.md](AGENTS.md), and
+[the release checks](RELEASING.md). Report vulnerabilities through
+[private reporting](SECURITY.md).
