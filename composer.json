@@ -1,0 +1,12 @@
+{
+  "name": "skyyware/stage-chat",
+  "description": "A small PHP contract for stateless chat providers.",
+  "type": "library",
+  "license": "MIT",
+  "require": {"php": "^8.4", "ext-json": "*"},
+  "require-dev": {"phpstan/phpstan": "^2.1", "phpunit/phpunit": "^12.0"},
+  "autoload": {"psr-4": {"Stage\\Chat\\": "src/"}},
+  "autoload-dev": {"psr-4": {"Stage\\Chat\\Tests\\": "tests/"}},
+  "scripts": {"check": ["@composer validate --strict", "phpstan analyse --no-progress", "phpunit"]},
+  "config": {"sort-packages": true, "allow-plugins": false}
+}
