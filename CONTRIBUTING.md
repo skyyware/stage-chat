@@ -12,6 +12,12 @@ credentials, or personal data in an issue or patch.
 5. Update the examples and documentation together with the contract.
 6. Run `composer check` and open a focused pull request with the problem, resulting behavior, and validation.
 
+For behavior, API, requirements, or usage changes, review the package docs and
+executable examples together. Identify affected technical guidance on
+[stage.dev](https://stage.dev/). Maintainers coordinate its curated knowledge
+update in the same delivery under [RELEASING.md](RELEASING.md).
+You do not need access to the website repository to contribute.
+
 PHPStan runs at maximum level. Use explicit PHP types and constructors.
 Add no narrative comments or TODOs; type annotations consumed by PHPStan and
 required legal notices are allowed. Repository automation is disabled, so
